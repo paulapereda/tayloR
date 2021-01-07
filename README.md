@@ -1,2 +1,1 @@
-# tayloR
-tayloR: text analysis of Taylor Swift's discography in R
+# tayloR: text analysis of Taylor Swift's discography in R
