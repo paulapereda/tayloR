@@ -275,7 +275,7 @@ gr <- genius_url("https://genius.com/Taylor-swift-gold-rush-lyrics") %>%
   mutate(album = "evermore",
          track_n = 3)
 
-i <- genius_url("https://genius.com/Taylor-swift-gold-rush-lyrics") %>%
+i <- genius_url("https://genius.com/Taylor-swift-ivy-lyrics") %>%
   mutate(album = "evermore",
          track_n = 10)
 
@@ -290,6 +290,7 @@ c <- genius_url("https://genius.com/Taylor-swift-closure-lyrics") %>%
 e <- genius_url("https://genius.com/Taylor-swift-evermore-lyrics") %>%
   mutate(album = "evermore",
          track_n = 15)
+
 
 ts9 <- rbind(ts9, w, gr, i, lss, c, e)
 
@@ -329,7 +330,7 @@ tidy_taylor <- ts_tok %>%
   anti_join(stop_words) %>%
   filter(!(word %in% c("ooh", "yeah", "ah", "uh", "ha", "whoa", "eh", "hoo", "ey", "mmm", "ayy",
                       "eeh", "huh", "na", "di", "la", "da", "em", "ya", "ra", "ho", "mm", "ahh",
-                      "woo", "aah"))) %>% 
+                      "woo", "aah", "20", "haa"))) %>% 
   filter(!is.na(word)) %>% 
   mutate(album = factor(album, levels = c("Taylor Swift", "Fearless", "Speak Now", "Red", "1989",
                                           "Reputation", "Lover", "folklore", "evermore")))
@@ -337,5 +338,5 @@ tidy_taylor <- ts_tok %>%
 write_rds(tidy_taylor, "data/tidy_taylor.rds")
 
 ## Comentario final: el paquete 'genius' no baja todas las canciones del álbum que se le indica, por lo que
-## tuve que bajar esas canciones a mano y joinearlas. El comportamiento de qué canciones no descargar, 
+## tuve que bajar esas canciones a mano y joinearlas. El comportamiento de qué canciones no descarga, 
 ## parece ser aleatorio.

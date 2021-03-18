@@ -5,6 +5,8 @@ library(scales)
 library(tidytext) 
 library(tidyverse)
 
+source("estilo_ts.R")
+
 tidy_taylor <- read_rds("data/tidy_taylor.rds")
 
 tay_cors <- tidy_taylor %>%
@@ -25,5 +27,5 @@ tay_cors %>%
         plot.caption = element_text(hjust = 1)) +
   labs(title = "Análisis de redes entre canciones de Taylor Swift",
        caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
+                  Paula Pereda - @paubgood - paulapereda.com ") +
   ggsave("plots/07_graphs.png", dpi = 300, width = 12, height = 7)

@@ -31,7 +31,7 @@ tidy_taylor %>%
        y = "Número de veces utilizada", 
        title = "Palabras más utilizadas en la discografía de Taylor Swift",
        caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
+                  Paula Pereda - @paubgood - paulapereda.com ") +
   ggsave("plots/01_counting_words.png", dpi = 300, width = 12, height = 7)
 
 # (2) Positive & negative words (doesn't work!... yet)
@@ -68,13 +68,14 @@ tswift_tf_idf %>%
   scale_x_reordered() +
   scale_y_continuous(expand = expansion(mult = c(0, 0))) +
   coord_flip() +
-  theme(strip.text = element_text(size = 11)) +
-  labs(x = NULL, 
+  theme(axis.text.x = element_blank(),
+        strip.text = element_text(size = 11)) +
+  labs(x = "", 
        y = "tf-idf",
        title = "Palabras importantes en los álbums de Taylor Swift",
        caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
-  ggsave("plots/02_important_words.png", dpi = 300, width = 12, height = 7)
+                  Paula Pereda - @paubgood - paulapereda.com") +
+  ggsave("plots/02_important_words.png", dpi = 300, width = 12, height = 8.5)
 
 
 # (4) Hey kids, topic modelling is fun!
@@ -111,12 +112,13 @@ tswift_beta %>%
   facet_wrap(~ topic, scales = "free_y",  ncol = 4) +
   coord_flip() +
   scale_x_reordered() +
+  theme(axis.text.x = element_blank()) +
   labs(x = NULL, 
        y = expression(beta),
        title = "Palabras que probablemente pertenezcan a un tema",
        subtitle = "Aquí, cada tema parece representar bastante bien un álbum (o sister álbums).",
        caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
+                  Paula Pereda - @paubgood - paulapereda.com") +
   ggsave("plots/03_topic_modelling.png", dpi = 300, width = 12, height = 7)
 
 # (5) Emotions in Taylor Swift songs
@@ -138,7 +140,7 @@ ggplot(sentimentscores, aes(reorder(sentiment, Score), Score)) +
        y = "Puntajes", 
        title = "Emociones en la discografía de Taylor Swift",
        caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
+                  Paula Pereda - @paubgood - paulapereda.com") +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         axis.line.x = element_line(),
@@ -191,9 +193,9 @@ lyric_sentiment2 %>%
          y = "Puntajes",
          title = "Canciones y las emociones & sentimientos con los que están asociadas",
          caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
+                    Paula Pereda - @paubgood - paulapereda.com") +
   coord_flip() + 
-  ggsave("plots/05_emotions_track.png", dpi = 300, width = 12, height =  9)
+  ggsave("plots/05_emotions_track.png", dpi = 300, width = 14.5, height =  9)
 
 
 # (7) Sentiment and albums
@@ -216,7 +218,7 @@ lyric_sentiment %>%
        y = "Puntaje",
        title = "Álbums y las emociones & sentimientos con los que están asociadas",
        caption = "Fuente: elaboración propia en base a Genius.
-                  Paula Pereda - @paubgood") +
+                  Paula Pereda - @paubgood - paulapereda.com") +
   coord_flip() + 
-  ggsave("plots/06_emotions_albums.png", dpi = 300, width = 12.3, height =  9)
+  ggsave("plots/06_emotions_albums.png", dpi = 300, width = 18, height =  10)
 

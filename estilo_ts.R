@@ -1,14 +1,15 @@
 library(ggplot2)
 
 estilo_ts <- function() {
-  theme_minimal(base_family = "Lucida Grande",
-                base_size = 15) +
-    theme(axis.line = ggplot2::element_blank(), 
-          panel.grid.minor = ggplot2::element_blank(), 
-          panel.background = ggplot2::element_blank(), 
-          plot.title = element_text(hjust = .5),
+  theme_minimal(base_family = "Gotham-Book",
+                base_size = 16) +
+    theme(axis.line = element_blank(), 
+          panel.grid.minor = element_blank(), 
+          panel.background = element_blank(), 
+          plot.title = element_text(hjust = .5, 
+                                    family = "Gotham-Bold"),
           plot.subtitle = element_text(hjust = .5),
-          plot.caption = element_text(hjust = 1, 
+          plot.caption = element_text(family = "Gotham-Light", hjust = 1, 
                                       margin = margin(t = 10)),
           # panel.grid.major.x = element_blank(),
           # panel.grid.minor.x = element_blank(),
